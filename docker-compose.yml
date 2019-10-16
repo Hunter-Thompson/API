@@ -7,10 +7,10 @@ services:
   server:
     build:
       dockerfile: Dockerfile.dev
-      context: ./legalist-api
+      context: .
     volumes:
       - /app/node_modules
-      - ./legalist-api:/app
+      - .:/app
     environment:
       - PGPORT=5432
       - PGUSER=hunter
