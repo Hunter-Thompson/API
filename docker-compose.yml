@@ -7,10 +7,10 @@ services:
   server:
     build:
       dockerfile: Dockerfile.dev
-      context: ./node-api-postgres
+      context: ./legalist-api
     volumes:
       - /app/node_modules
-      - ./node-api-postgres:/app
+      - ./legalist-api:/app
     environment:
       - PGPORT=5432
       - PGUSER=hunter
