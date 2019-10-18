@@ -14,9 +14,9 @@ after_success:
   - docker build -t hunter-thompson/legalist-postgres ./postgres
   - docker build -t hunter-thompson/legalist-api ./
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push hunter-thompson/legalist-api:nginx
-  - docker push hunter-thompson/legalist-api:postgres
-  - docker push hunter-thompson/legalist-api:api
+  - docker push hunter-thompson/legalist-nginx
+  - docker push hunter-thompson/legalist-postgres
+  - docker push hunter-thompson/legalist-api
 
 # deploy:
 #   provider: elasticbeanstalk
