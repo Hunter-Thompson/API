@@ -1,6 +1,7 @@
 # legalist-api
 
 Requirements
+
 ⋅⋅* API should have endpoints to return all objects (attorney, case, person)
 ⋅⋅* API should have endpoints to return one object given its id (attorney, case, person)
 ⋅⋅* API should implement caching (preferably on redis)
@@ -8,7 +9,9 @@ Requirements
 ⋅⋅* If possible postgres should be highly available
 ⋅⋅* API should be dockerized
 ⋅⋅* Code should be hosted somewhere and automatic deployment setup
+
 Potential pipeline stages should be (you have the choice of choosing each of these instances):
+
 ⋅⋅* Pulling code from version control system
 ⋅⋅* building images
 ⋅⋅* pushing them to registry
