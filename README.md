@@ -1,4 +1,4 @@
-# legalist-api
+# api
 
 Requirements
 
