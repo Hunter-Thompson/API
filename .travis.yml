@@ -13,7 +13,7 @@ after_success:
   - docker build -t hunter-thompson/legalist-nginx ./nginx
   - docker build -t hunter-thompson/legalist-postgres ./postgres
   - docker build -t hunter-thompson/legalist-api ./
-  - echo "$DOCKER_PASSWORD" | docker login -i "$DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push hunter-thompson/legalist-api:nginx
   - docker push hunter-thompson/legalist-api:postgres
   - docker push hunter-thompson/legalist-api:api
