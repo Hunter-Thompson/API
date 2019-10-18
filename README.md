@@ -91,6 +91,9 @@ Attorney deleted with ID:
 ```
 
 
+**Few things I have to say**
+
+I was unable to do some of the API because I have very little knowledge of Node.js, redis and Postgres, the past 2 days I learnt some of all 3 and managed to come up with this.
 
 
 
