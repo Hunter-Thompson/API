@@ -2,20 +2,20 @@ version: '3'
 services:
   database:
     build:
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
       context: ./postgres
     volumes:
       - dbdata:/var/lib/postgresql/data
   nginx:
     restart: always
     build:
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
       context: ./nginx
     ports:
       - "3050:80"
   api:
     build:
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
       context: .
     volumes:
       - /app/node_modules
