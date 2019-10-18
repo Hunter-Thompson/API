@@ -51,6 +51,17 @@ const createAttorney = (request, response) => {
   })
 }
 
+const deleteAttorney = (request, response) => {
+  const id = parseInt(request.params.id)
+  pool.query('DELETE FROM legalist.Attorney WHERE id = $1', [id], (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).send(`Attorney deleted with ID: ${id}`)
+  })
+}
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -85,6 +96,17 @@ const createPerson = (request, response) => {
   })
 }
 
+const deletePerson = (request, response) => {
+  const id = parseInt(request.params.id)
+  pool.query('DELETE FROM legalist.Person WHERE id = $1', [id], (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).send(`Person deleted with ID: ${id}`)
+  })
+}
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const getLCase = (request, response) => {
@@ -118,36 +140,21 @@ const createLCase = (request, response) => {
   })
 }
 
+const deleteCase = (request, response) => {
+  const id = parseInt(request.params.id)
+  pool.query('DELETE FROM legalist.LCase WHERE id = $1', [id], (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).send(`Case deleted with ID: ${id}`)
+  })
+}
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
-// const updateUser = (request, response) => {
-//   const id = parseInt(request.params.id)
-//   const { name, email } = request.body
-
-//   pool.query(
-//     'UPDATE users SET name = $1, email = $2 WHERE id = $3',
-//     [name, email, id],
-//     (error, results) => {
-//       if (error) {
-//         throw error
-//       }
-//       response.status(200).send(`User modified with ID: ${id}`)
-//     }
-//   )
-// }
-
-//const deleteAttorney = (request, response) => {
-//  const id = parseInt(request.params.id)
-
-//  pool.query('DELETE FROM Attorney WHERE id = $1', [id], (error, results) => {
-//    if (error) {
-//      throw error
-//    }
-//    response.status(200).send(`Attorney deleted with ID: ${id}`)
-//  })
-//}
 
 module.exports = {
   getAttorney,
@@ -159,7 +166,7 @@ module.exports = {
   getLCase,
   getLCasebyid,
   createLCase,
-  getAll
- // updateUser,
-  //deleteAttorney,
+  deleteAttorney,
+  deleteCase,
+  deletePerson,
 }

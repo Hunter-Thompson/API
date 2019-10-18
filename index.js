@@ -12,20 +12,27 @@ app.use(
 )
 
 app.get('/', (request, response) => {
-  response.json({ info: 'Sample API for Legalist.' })
+  //response.json({ info: 'Sample API for Legalist.' })
+  response.send('Sample API for Legalist. Available options: /attorney, /attorney/id, /createattorney, /deleteattorney & /person, /person/id, /createperson, /deleteperson/id & /case, /case/id, /createcase, /deletecase/id ')
 })
 
 app.get('/attorney', db.getAttorney)
 app.get('/attorney/:id', db.getAttorneybyid)
 app.post('/createattorney', db.createAttorney)
+app.delete('/deleteattorney/:id', db.deleteAttorney)
+
 app.get('/person', db.getPerson)
 app.get('/person/:id', db.getPersonbyid)
 app.post('/createperson', db.createPerson)
+app.delete('/deleteperson/:id', db.deletePerson)
+
+
 app.get('/case', db.getLCase)
 app.get('/case/:id', db.getLCasebyid)
 app.post('/createcase', db.createLCase)
-//app.put('/users/:id', db.updateUser)
-//app.delete('/users/:id', db.deleteUser)
+app.delete('/deletecase/:id', db.deleteCase)
+
+
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`)

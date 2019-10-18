@@ -10,23 +10,23 @@ script:
   - bash scripts/test.sh
 
 after_success:
-  - docker build -t hunterthompson/legalist-nginx ./nginx
-  - docker build -t hunterthompson/legalist-postgres ./postgres
-  - docker build -t hunterthompson/legalist-api ./
+  - docker build -t "$DOCKER_ID"/legalist-nginx ./nginx
+  - docker build -t "$DOCKER_ID"/legalist-postgres ./postgres
+  - docker build -t "$DOCKER_ID"/legalist-api ./
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push hunterthompson/legalist-nginx
-  - docker push hunterthompson/legalist-postgres
-  - docker push hunterthompson/legalist-api
+  - docker push "$DOCKERID"/legalist-nginx
+  - docker push "$DOCKER_ID"/legalist-postgres
+  - docker push "$DOCKER_ID"/legalist-api
 
-# deploy:
-#   provider: elasticbeanstalk
-#   region: "us-east-2"
-#   app: "legalist-api"
-#   env: "Docker-env"
-#   bucket_name: $AWS_BUCKET_NAME
-#   bucket_path: "legalist-api"
-#   on:
-#     branch: master
-#   access_key_id: $AWS_ACCESS_KEY
-#   secret_acess_key:
-#     secure: "$AWS_SECRET_KEY"
+deploy:
+provider: elasticbeanstalk
+region: "us-east-2"
+app: "legalist-api"
+env: "Docker-env"
+bucket_name: $AWS_BUCKET_NAME
+bucket_path: "legalist-api"
+on:
+branch: master
+access_key_id: $AWS_ACCESS_KEY
+secret_acess_key:
+secure: "$AWS_SECRET_KEY"
