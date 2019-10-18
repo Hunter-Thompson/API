@@ -59,7 +59,9 @@ To test using TravisCI:
 Enable Travis CI access to github, enable the REPO.
 Add DOCKER_PASSWORD and DOCKER_ID environment variables so that TravisCI can login to Dockerhub.
 ADD $AWS_ACCESS_KEY, $AWS_BUCKET_NAME and $AWS_SECRET_KEY environment variables so that TravisCI can login to AWS and start the app.
+
 Push first .travis.yml to the repo
+
 Then push all the rest of the code to the repo so it triggeres a test on TravisCI.
 
 Details of the test:
