@@ -45,6 +45,7 @@ Out of the Potential pipeline(used TravisCI) stages I was able to do:
 AWS configuration:
 
 Create a new Application in elasticbeanstalk called "legalist-api" and in the App create a Web server environment called "Docker-env" with a Preconfigured platform called Multi-container Docker.
+
 After it has been created take the name of the S3 storage bucket(Looks like this: "Using elasticbeanstalk-us-east-2-........ as Amazon S3 storage bucket for environment data) and add it as an environment variable in TravisCI
 
 To run locally:
