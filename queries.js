@@ -5,9 +5,20 @@ const pool = new Pool({
   database: 'api',
   password: 'helloworld',
   port: 5432,
+  multipleSatements: true,  
 })
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const getAll = (request, response) => {
+  pool.query('SELECT * FROM legalist.Attorney, legalist.Person', (error, results) => {
+    if (error) {
+      throw error
+    }
+    response.status(200).json(results.rows)
+    //response.send('working')
+  })
+}
 
 const getAttorney = (request, response) => {
   pool.query('SELECT * FROM legalist.Attorney ORDER BY id ASC', (error, results) => {
@@ -147,7 +158,8 @@ module.exports = {
   createPerson,
   getLCase,
   getLCasebyid,
-  createLCase
+  createLCase,
+  getAll
  // updateUser,
   //deleteAttorney,
 }

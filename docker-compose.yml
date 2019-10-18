@@ -4,6 +4,8 @@ services:
     build:
       dockerfile: Dockerfile.dev
       context: ./postgres
+    volumes:
+      - dbdata:/var/lib/postgresql/data
   nginx:
     restart: always
     build:
@@ -26,5 +28,8 @@ services:
       - PGHOST=database
     ports:
       - "3000:3000"
+volumes:
+  dbdata:
+    driver: 'local'
  
     

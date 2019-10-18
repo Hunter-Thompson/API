@@ -3,3 +3,5 @@ FROM postgres:latest
 WORKDIR '/docker-entrypoint-initdb.d'
 
 COPY . .
+
+CHMOD 700 /docker-entrypoint-initdb.d/*

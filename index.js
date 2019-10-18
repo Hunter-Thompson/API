@@ -15,7 +15,6 @@ app.get('/', (request, response) => {
   response.json({ info: 'Sample API for Legalist.' })
 })
 
-
 app.get('/attorney', db.getAttorney)
 app.get('/attorney/:id', db.getAttorneybyid)
 app.post('/createattorney', db.createAttorney)

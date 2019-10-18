@@ -8,3 +8,25 @@ before_install:
 
 script:
   - bash scripts/test.sh
+
+after_success:
+  - docker build -t hunter-thompson/legalist-nginx ./nginx
+  - docker build -t hunter-thompson/legalist-postgres ./postgres
+  - docker build -t hunter-thompson/legalist-api ./
+  - echo "$DOCKER_PASSWORD" | docker login -i "$DOCKER_ID" --password-stdin
+  - docker push hunter-thompson/legalist-nginx
+  - docker push hunter-thompson/legalist-postgres
+  - docker push hunter-thompson/legalist-api
+
+# deploy:
+#   provider: elasticbeanstalk
+#   region: "us-east-2"
+#   app: "legalist-api"
+#   env: "Docker-env"
+#   bucket_name: $AWS_BUCKET_NAME
+#   bucket_path: "legalist-api"
+#   on:
+#     branch: master
+#   access_key_id: $AWS_ACCESS_KEY
+#   secret_acess_key:
+#     secure: "$AWS_SECRET_KEY"
