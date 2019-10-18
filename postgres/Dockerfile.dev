@@ -4,4 +4,3 @@ WORKDIR '/docker-entrypoint-initdb.d'
 
 COPY . .
 
-RUN CHMOD 700 /docker-entrypoint-initdb.d/*
