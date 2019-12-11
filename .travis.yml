@@ -28,6 +28,6 @@ deploy:
   app: "Api"
   env: "Api-env"
   bucket_name: $AWS_BUCKET_NAME
-
-
+  on:
+    branch: master
   
