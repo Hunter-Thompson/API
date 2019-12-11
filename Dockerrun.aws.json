@@ -23,8 +23,8 @@
             "memory": "128",
             "portMappings": [
             {
-                "hostPort": 3050,
-                "containerPort": 80
+                "hostPort": 80,
+                "containerPort": 3050
             }
             ],
             "links": ["api", "postgres"]
