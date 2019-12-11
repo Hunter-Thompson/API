@@ -17,6 +17,7 @@
         },
         {
             "name": "nginx",
+            "links": ["api", "postgres"],
             "image": "hunterthompson/nginx",
             "hostname": "nginx",
             "essential": true,
@@ -24,10 +25,10 @@
             "portMappings": [
             {
                 "hostPort": 80,
-                "containerPort": 3050
+                "containerPort": 80
             }
-            ],
-            "links": ["api", "postgres"]
+            ]
+            
         }
 
     ]
