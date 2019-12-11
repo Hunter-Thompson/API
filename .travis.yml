@@ -17,3 +17,16 @@ after_success:
   - docker push "$DOCKERID"/nginx
   - docker push "$DOCKER_ID"/postgres
   - docker push "$DOCKER_ID"/api
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "Api"
+  env: "Api-env"
+  bucket_name: $AWS_BUCKET_NAME
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_acess_key:
+    secure: "$AWS_SECRET_KEY" 
+  
