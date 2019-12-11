@@ -25,8 +25,8 @@ deploy:
   secret_acess_key:
     secure: "$AWS_SECRET_KEY" 
   region: "us-east-1"
-  app: "Api"
-  env: "Api-env"
+  app: "test-api"
+  env: "TestApi-env"
   bucket_name: $AWS_BUCKET_NAME
   on:
     branch: master
