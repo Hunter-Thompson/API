@@ -17,17 +17,18 @@
         },
         {
             "name": "nginx",
-            "links": ["api", "postgres"],
             "image": "hunterthompson/nginx",
             "hostname": "nginx",
             "essential": true,
-            "memory": "128",
             "portMappings": [
             {
                 "hostPort": 80,
                 "containerPort": 80
             }
-            ]
+
+            ],
+            "links": ["api", "postgres"],
+            "memory": "128"
             
         }
 

@@ -13,7 +13,7 @@ app.use(
 
 app.get('/', (request, response) => {
   //response.json({ info: 'Sample API for Legalist.' })
-  response.send('Sample API for Legalist. Available options: /attorney, /attorney/id, /createattorney, /deleteattorney & /person, /person/id, /createperson, /deleteperson/id & /case, /case/id, /createcase, /deletecase/id ')
+  response.send('Sdasdample API for Legalist. Available options: /attorney, /attorney/id, /createattorney, /deleteattorney & /person, /person/id, /createperson, /deleteperson/id & /case, /case/id, /createcase, /deletecase/id ')
 })
 
 app.get('/attorney', db.getAttorney)
