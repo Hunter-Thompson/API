@@ -4,20 +4,30 @@
         {
             "name": "api",
             "image": "hunterthompson/api",
-            "hostname": "node-app",
-            "essential": true
+            "hostname": "api",
+            "essential": false,
+            "memory": "128"
         },
         {
             "name": "postgres",
             "image": "hunterthompson/postgres",
             "hostname": "postgres",
-            "essential": true
+            "essential": false,
+            "memory": "128"
         },
         {
             "name": "nginx",
             "image": "hunterthompson/nginx",
-            "hostname": "api",
-            "essential": false
+            "hostname": "nginx",
+            "essential": true,
+            "memory": "128",
+            "portMappings": [
+            {
+                "hostPort": 80,
+                "containerPort": 80
+            }
+            ],
+            "links": ["api", "postgres"]
         }
 
     ]
