@@ -30,4 +30,4 @@ deploy:
   bucket_name: $AWS_BUCKET_NAME
   on:
     branch: master
-  
+  deploy.skip_cleanup: true
